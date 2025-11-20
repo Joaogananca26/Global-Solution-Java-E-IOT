@@ -1,11 +1,24 @@
 package br.com.fiap.GlobalSolutionJava.domain.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record CreateUserDTO(
+        @NotBlank(message = "{user.email.notblank}")
+        String emailUsuario,
+
         @NotBlank(message = "{user.username.notblank}")
-        String usuario,
+        String nomeUsuario,
 
         @NotBlank(message = "{user.password.notblank}")
-        String senha
+        String senhaUsuario,
+
+        @NotNull(message = "{user.dayofbirth.notblank}")
+        Integer dia,
+
+        @NotNull(message = "{user.monthofbirth.notblank}")
+        Integer mes,
+
+        @NotNull(message = "{user.yearofbirth.notblank}")
+        Integer ano
 ) {}

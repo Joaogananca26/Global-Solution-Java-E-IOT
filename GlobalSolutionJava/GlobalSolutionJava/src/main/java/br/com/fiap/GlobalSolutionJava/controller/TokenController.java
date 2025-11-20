@@ -32,7 +32,7 @@ public class TokenController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest, Locale locale) {
-        var user = userRepository.findByUsuario(loginRequest.usuario());
+        var user = userRepository.findByEmailUsuario(loginRequest.emailUsuario());
 
         if (user.isEmpty() || !user.get().isLoginCorrect(loginRequest, passwordEncoder)) {
             String message = messageSource.getMessage("auth.invalid.credentials", null, locale);
