@@ -6,7 +6,8 @@ import br.com.fiap.GlobalSolutionJava.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import java.util.List;
 
 @AllArgsConstructor
@@ -27,6 +30,7 @@ public class UserController {
 
     @Transactional
     @PostMapping("/users")
+    @CacheEvict(value = "users", allEntries = true)
     public ResponseEntity<Void> newUser(@Valid @RequestBody  CreateUserDTO dto) {
 
         var userDb = userRepository.findByUsuario(dto.usuario());
@@ -45,6 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
+    @Cacheable("users")
     public ResponseEntity<List<User>> listUsers() {
         var users = userRepository.findAll();
         return ResponseEntity.ok(users);

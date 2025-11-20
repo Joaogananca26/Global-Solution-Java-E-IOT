@@ -3,9 +3,9 @@ package br.com.fiap.GlobalSolutionJava.domain.dto.request;
 import jakarta.validation.constraints.NotBlank;
 
 public record CreateUserDTO(
-        @NotBlank(message = "O campo usuario não pode estar vazio")
+        @NotBlank(message = "{user.username.notblank}")
         String usuario,
 
-        @NotBlank(message = "O campo senha não pode estar vazio")
+        @NotBlank(message = "{user.password.notblank}")
         String senha
 ) {}

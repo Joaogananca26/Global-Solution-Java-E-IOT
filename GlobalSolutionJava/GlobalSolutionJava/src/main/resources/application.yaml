@@ -1,6 +1,9 @@
 spring:
   application:
     name: GlobalSolutionJava
+  messages:
+    basename: messages
+    encoding: UTF-8
 
   datasource:
     url: jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
