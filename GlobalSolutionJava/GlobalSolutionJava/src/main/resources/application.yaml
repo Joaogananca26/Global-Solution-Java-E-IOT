@@ -4,6 +4,10 @@ spring:
   messages:
     basename: messages
     encoding: UTF-8
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
 
   datasource:
     url: jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL

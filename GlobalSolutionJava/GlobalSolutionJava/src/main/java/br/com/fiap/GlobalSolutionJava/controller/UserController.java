@@ -49,9 +49,11 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    @Cacheable("users")
-    public ResponseEntity<List<User>> listUsers() {
-        var users = userRepository.findAll();
+    @Cacheable(value = "users", key = "#pageable.pageNumber + '-' + #pageable.pageSize + '-' + #pageable.sort")
+    public ResponseEntity<Page<User>> listUsers(
+            @PageableDefault(size = 10, sort = "usuario") Pageable pageable
+    ) {
+        var users = userRepository.findAll(pageable);
         return ResponseEntity.ok(users);
     }
 }
