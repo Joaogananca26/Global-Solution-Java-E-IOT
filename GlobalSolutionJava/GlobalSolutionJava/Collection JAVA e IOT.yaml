@@ -1,0 +1,284 @@
+type: collection.insomnia.rest/5.0
+name: Global Solution JAVA e IOT
+meta:
+  id: wrk_0f6bceab59104a3d98ed0ef498582fe6
+  created: 1763512461949
+  modified: 1763756006894
+collection:
+  - name: Java
+    meta:
+      id: fld_a3d66712eb7d4987951c216ee2ee8992
+      created: 1763753965373
+      modified: 1763753965373
+      sortKey: -1763753965374
+    children:
+      - url: http://localhost:8080/login
+        name: Get Token
+        meta:
+          id: req_1682f63bea14485fb9bdbe1b7451c68f
+          created: 1763512516515
+          modified: 1763753972111
+          isPrivate: false
+          sortKey: -1763753966676
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"emailUsuario": "natan@email.com",
+            	"senhaUsuario": "natan"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_1db4172ea28f4426a5a0bb28ca3451c6
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_72476dbdf97547a9b88c5e77253c7b48
+          - id: pair_7d6ffe4a106c4cc1a522f3d5c8cb8eec
+            name: Accept-Language
+            value: pt-BR
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users
+        name: Create User
+        meta:
+          id: req_9c15a13bc41d4d1580a8480698b27f88
+          created: 1763594122166
+          modified: 1763753970318
+          isPrivate: false
+          sortKey: -1763753966701
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"emailUsuario": "natan@email.com",
+            	"nomeUsuario": "natan",
+            	"senhaUsuario": "natan",
+            	"dia": 11,
+            	"mes": 2,
+            	"ano": 2005,
+            	"cepUsuario": "09090080"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_efc04d31623a4949b6a82b5d2a303324
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_da5f74fb5e5b4fa995033e7b5ac12f5a
+          - id: pair_59cce2a344694cb99c9871296cb1d5a3
+            name: Accept-Language
+            value: pt-BR
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users
+        name: List Users
+        meta:
+          id: req_9da35c8904174609b188e8d0e7e35463
+          created: 1763594308404
+          modified: 1763753969526
+          isPrivate: false
+          sortKey: -1763753966651
+        method: GET
+        parameters:
+          - id: pair_398dcd0d9136476195c4ade282ed86bc
+            name: page
+            value: "1"
+            disabled: false
+          - id: pair_eb8dd288ebf14dc5944518e528df0064
+            name: size
+            value: "10"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_3108be9202a84282aa2775cc1a48b864
+          - id: pair_880aa8bac6de41b19ae1ea2d2fe785c4
+            name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoibmF0YW5AZW1haWwuY29tIiwiZXhwIjoxNzYzNzU3MzQ1fQ.B_1QU0PJPh2S3x_vbGHUk78LrS6rIJJ2Qpj70JvGs-4
+            disabled: false
+          - id: pair_795b6ee5fb32402f88db143f4f8fd873
+            name: Accept-Language
+            value: pt-BR
+            disabled: false
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users/3f29cdf1-4658-4fa4-81ef-d51ff6cba93b
+        name: Update User
+        meta:
+          id: req_ecae899f48a743cbb9942733e4913cd2
+          created: 1763693074729
+          modified: 1763753967822
+          isPrivate: false
+          sortKey: -1763753966851
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nomeUsuario": "roberta",
+            	"senhaUsuario": "robertinha",
+            	"dia": 10,
+            	"mes": 11,
+            	"ano": 2025
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+            id: pair_b0a194e84ab9425ab4b4f5ff90bd63f6
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_aab2453ad849436fae16a88fa1e72ae0
+          - id: pair_94de66875bd9474c8b12276aa9117e3d
+            name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoibmF0YW5AZW1haWwuY29tIiwiZXhwIjoxNzYzNzU3MzQ1fQ.B_1QU0PJPh2S3x_vbGHUk78LrS6rIJJ2Qpj70JvGs-4
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/users/3f29cdf1-4658-4fa4-81ef-d51ff6cba93b
+        name: Get User By Id
+        meta:
+          id: req_55e7bccdae25441f9b9191eb4a84efc3
+          created: 1763694400694
+          modified: 1763753966819
+          isPrivate: false
+          sortKey: -1763753966751
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+            id: pair_2131f7b4897d4b009950763c3577b66b
+          - id: pair_4f20280a5902440792384c420bcd19db
+            name: Authorization
+            value: Bearer {% response 'body', 'req_1682f63bea14485fb9bdbe1b7451c68f',
+              'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'always', 60 %}
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: IOT
+    meta:
+      id: fld_75e681ec23dc424ab408d6db3681c59c
+      created: 1763753977120
+      modified: 1763754069101
+      sortKey: -1763753977120
+    children:
+      - url: http://localhost:8080/career
+        name: New Request
+        meta:
+          id: req_71103237c386409f86196c9c1da65592
+          created: 1763754067123
+          modified: 1763755490696
+          isPrivate: false
+          sortKey: -1763754067123
+        method: POST
+        body:
+          mimeType: application/json
+          text: >
+            {
+              "answers": [
+                {
+                  "question_id": 1,
+                  "resposta": "Gosto de criar coisas novas e estudar tecnologia."
+                },
+                {
+                  "question_id": 2,
+                  "resposta": "Prefiro trabalhar com pessoas e dados, porque gosto de analisar informação e ajudar os outros."
+                },
+                {
+                  "question_id": 3,
+                  "resposta": "10, sou muito interessado em tecnologia e inteligência artificial."
+                },
+                {
+                  "question_id": 4,
+                  "resposta": "Sou bem analítico e um pouco criativo, gosto de resolver problemas e pensar em soluções diferentes."
+                },
+                {
+                  "question_id": 5,
+                  "resposta": "Imagino um mundo automatizado, com IA em quase tudo e muitas coisas funcionando de forma autônoma."
+                },
+                {
+                  "question_id": 6,
+                  "resposta": "Gosto de desafios novos constantemente, não curto muito rotina engessada."
+                },
+                {
+                  "question_id": 7,
+                  "resposta": "Curto negócios, educação e jogos, principalmente quando envolvem tecnologia."
+                },
+                {
+                  "question_id": 8,
+                  "resposta": "Quero trabalhar remoto, de preferência em startups ou como autônomo."
+                },
+                {
+                  "question_id": 9,
+                  "resposta": "Tenho boa comunicação, lógica e facilidade para aprender coisas novas."
+                },
+                {
+                  "question_id": 10,
+                  "resposta": "Posso investir de 3 a 5 anos de estudo intenso para me tornar referência em uma área."
+                }
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b76087441975d505c620666f5b6cab63eec8047b
+    created: 1763512461956
+    modified: 1763512461956
+environments:
+  name: Base Environment
+  meta:
+    id: env_b76087441975d505c620666f5b6cab63eec8047b
+    created: 1763512461954
+    modified: 1763656329666
+    isPrivate: false
