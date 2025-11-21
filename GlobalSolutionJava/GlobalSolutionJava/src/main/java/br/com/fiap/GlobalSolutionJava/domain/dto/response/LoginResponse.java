@@ -1,4 +1,4 @@
 package br.com.fiap.GlobalSolutionJava.domain.dto.response;
 
-public record LoginResponse(String accessToken, Long expiresIn) {
+public record LoginResponse(String accessToken) {
 }

@@ -1,7 +1,5 @@
 package br.com.fiap.GlobalSolutionJava.domain.dto.request;
 
-
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
 public record LoginRequest(
