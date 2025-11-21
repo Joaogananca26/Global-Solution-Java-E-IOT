@@ -35,6 +35,9 @@ public class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dataNascimentoUsuario;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Localizacao localizacao;
+
     public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
         return passwordEncoder.matches(loginRequest.senhaUsuario(), this.senhaUsuario);
     }

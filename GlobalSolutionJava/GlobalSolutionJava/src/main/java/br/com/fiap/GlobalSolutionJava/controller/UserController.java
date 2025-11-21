@@ -6,6 +6,7 @@ import br.com.fiap.GlobalSolutionJava.domain.dto.request.UpdateUser;
 import br.com.fiap.GlobalSolutionJava.domain.dto.response.ListUsersResponse;
 import br.com.fiap.GlobalSolutionJava.domain.dto.response.MessageResponse;
 import br.com.fiap.GlobalSolutionJava.repository.UserRepository;
+import br.com.fiap.GlobalSolutionJava.service.LocalizacaoService;
 import br.com.fiap.GlobalSolutionJava.service.UserService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -30,6 +31,7 @@ public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final LocalizacaoService localizacaoService;
 
     @Transactional
     @PostMapping("/users")
@@ -49,7 +51,9 @@ public class UserController {
         user.setNomeUsuario(dto.nomeUsuario());
 
 
-        userService.salvar(user, dataNascimento);
+        User savedUser = userService.salvar(user, dataNascimento);
+
+        localizacaoService.persistLocation(dto.cepUsuario(), savedUser);
 
         return ResponseEntity.ok().build();
     }

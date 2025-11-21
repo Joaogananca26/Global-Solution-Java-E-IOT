@@ -20,5 +20,8 @@ public record CreateUser(
         Integer mes,
 
         @NotNull(message = "{user.yearofbirth.notblank}")
-        Integer ano
+        Integer ano,
+
+        @NotBlank(message = "{user.cep.notblank}")
+        String cepUsuario
 ) {}

@@ -1,0 +1,200 @@
+type: collection.insomnia.rest/5.0
+name: "Global Solution JAVA "
+meta:
+  id: wrk_0f6bceab59104a3d98ed0ef498582fe6
+  created: 1763512461949
+  modified: 1763512461949
+collection:
+  - url: http://localhost:8080/login
+    name: Get Token
+    meta:
+      id: req_1682f63bea14485fb9bdbe1b7451c68f
+      created: 1763512516515
+      modified: 1763695506023
+      isPrivate: false
+      sortKey: -1763512516515
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"emailUsuario": "jorge@email.com",
+        	"senhaUsuario": "arthur"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1db4172ea28f4426a5a0bb28ca3451c6
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_72476dbdf97547a9b88c5e77253c7b48
+      - id: pair_7d6ffe4a106c4cc1a522f3d5c8cb8eec
+        name: Accept-Language
+        value: pt-BR
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users
+    name: Create User
+    meta:
+      id: req_9c15a13bc41d4d1580a8480698b27f88
+      created: 1763594122166
+      modified: 1763695219793
+      isPrivate: false
+      sortKey: -1763594122167
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"emailUsuario": "jorge@email.com",
+        	"nomeUsuario": "jorge",
+        	"senhaUsuario": "jorge",
+        	"dia": 24,
+        	"mes": 11,
+        	"ano": 2025
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_efc04d31623a4949b6a82b5d2a303324
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_da5f74fb5e5b4fa995033e7b5ac12f5a
+      - id: pair_59cce2a344694cb99c9871296cb1d5a3
+        name: Accept-Language
+        value: pt-BR
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users
+    name: List Users
+    meta:
+      id: req_9da35c8904174609b188e8d0e7e35463
+      created: 1763594308404
+      modified: 1763691651365
+      isPrivate: false
+      sortKey: -1763594308404
+    method: GET
+    parameters:
+      - id: pair_398dcd0d9136476195c4ade282ed86bc
+        name: page
+        value: "1"
+        disabled: false
+      - id: pair_eb8dd288ebf14dc5944518e528df0064
+        name: size
+        value: "10"
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_3108be9202a84282aa2775cc1a48b864
+      - id: pair_880aa8bac6de41b19ae1ea2d2fe785c4
+        name: Authorization
+        value: Bearer {% response 'body', 'req_1682f63bea14485fb9bdbe1b7451c68f',
+          'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'always', 60 %}
+        disabled: false
+      - id: pair_795b6ee5fb32402f88db143f4f8fd873
+        name: Accept-Language
+        value: pt-BR
+        disabled: false
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/989b2eaa-8a0c-41f8-aa5f-2a4ff721bdc7
+    name: Update User
+    meta:
+      id: req_ecae899f48a743cbb9942733e4913cd2
+      created: 1763693074729
+      modified: 1763695439187
+      isPrivate: false
+      sortKey: -1763693074729
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nomeUsuario": "arthur",
+        	"senhaUsuario": "arthur",
+        	"dia": 10,
+        	"mes": 11,
+        	"ano": 2025
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_b0a194e84ab9425ab4b4f5ff90bd63f6
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_aab2453ad849436fae16a88fa1e72ae0
+      - id: pair_94de66875bd9474c8b12276aa9117e3d
+        name: Authorization
+        value: Bearer {% response 'body', 'req_1682f63bea14485fb9bdbe1b7451c68f',
+          'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'always', 60 %}
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/users/989b2eaa-8a0c-41f8-aa5f-2a4ff721bdc7
+    name: Get User By Id
+    meta:
+      id: req_55e7bccdae25441f9b9191eb4a84efc3
+      created: 1763694400694
+      modified: 1763695255292
+      isPrivate: false
+      sortKey: -1763694400694
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+        id: pair_2131f7b4897d4b009950763c3577b66b
+      - id: pair_4f20280a5902440792384c420bcd19db
+        name: Authorization
+        value: Bearer {% response 'body', 'req_1682f63bea14485fb9bdbe1b7451c68f',
+          'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'always', 60 %}
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b76087441975d505c620666f5b6cab63eec8047b
+    created: 1763512461956
+    modified: 1763512461956
+environments:
+  name: Base Environment
+  meta:
+    id: env_b76087441975d505c620666f5b6cab63eec8047b
+    created: 1763512461954
+    modified: 1763656329666
+    isPrivate: false
