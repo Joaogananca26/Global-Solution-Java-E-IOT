@@ -17,6 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "TB_USUARIO")
+@NamedStoredProcedureQuery(
+        name = "User.popularTrilhasEConteudos",
+        procedureName = "package_usuario.prc_popular_trilhas_e_conteudos_usuario",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_id_usuario", type = String.class)
+        }
+)
 public class User implements UserDetails {
 
     @Id

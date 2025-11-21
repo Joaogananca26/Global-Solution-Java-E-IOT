@@ -13,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -24,13 +23,17 @@ public class UserService {
     private final MessageSource messageSource;
     private final PasswordEncoder passwordEncoder;
 
+    @Transactional
     public User save(User user, String cep) {
         String raw = user.getSenhaUsuario();
         if (raw != null && !raw.isBlank()) {
             user.setSenhaUsuario(passwordEncoder.encode(raw));
         }
 
-        return userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userRepository.flush();
+        userRepository.populateTrails(savedUser.getIdUsuario());
+        return savedUser;
     }
 
     public Page<User> getAll(Pageable pageable) {
@@ -51,7 +54,7 @@ public class UserService {
         LocalDate dataNascimento = LocalDate.of(dto.ano(), dto.mes(), dto.dia());
         user.setDataNascimentoUsuario(dataNascimento);
 
-        return userRepository.save(user);
+        return user;
     }
 
 
