@@ -1,8 +1,8 @@
 # build maven
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY GlobalSolutionJava/pom.xml .
-COPY GlobalSolutionJava/src ./src
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests -Dmaven.compiler.parameters=true
 
 # runtime / api
