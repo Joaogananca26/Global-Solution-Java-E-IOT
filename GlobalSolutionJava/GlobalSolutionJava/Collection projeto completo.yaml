@@ -1,13 +1,13 @@
 type: collection.insomnia.rest/5.0
 name: Global Solution JAVA e IOT
 meta:
-  id: wrk_0f6bceab59104a3d98ed0ef498582fe6
-  created: 1763512461949
-  modified: 1763756006894
+  id: wrk_3ffe0dc2cfbd4707b15bd59233d2c5b9
+  created: 1763837956081
+  modified: 1763837956081
 collection:
   - name: Java
     meta:
-      id: fld_a3d66712eb7d4987951c216ee2ee8992
+      id: fld_5486b11e0acf4e0f8f81af336e9a28ff
       created: 1763753965373
       modified: 1763753965373
       sortKey: -1763753965374
@@ -15,9 +15,9 @@ collection:
       - url: http://localhost:8080/login
         name: Get Token
         meta:
-          id: req_1682f63bea14485fb9bdbe1b7451c68f
+          id: req_346fed6edc244007ba578c60cb556254
           created: 1763512516515
-          modified: 1763753972111
+          modified: 1763839151245
           isPrivate: false
           sortKey: -1763753966676
         method: POST
@@ -25,20 +25,16 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"emailUsuario": "natan@email.com",
-            	"senhaUsuario": "natan"
+            	"emailUsuario": "pedrogamer@email.com",
+            	"senhaUsuario": "pedrinho123"
             }
         headers:
           - name: Content-Type
             value: application/json
-            id: pair_1db4172ea28f4426a5a0bb28ca3451c6
           - name: User-Agent
             value: insomnia/11.1.0
-            id: pair_72476dbdf97547a9b88c5e77253c7b48
-          - id: pair_7d6ffe4a106c4cc1a522f3d5c8cb8eec
-            name: Accept-Language
+          - name: Accept-Language
             value: pt-BR
-            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -50,9 +46,9 @@ collection:
       - url: http://localhost:8080/users
         name: Create User
         meta:
-          id: req_9c15a13bc41d4d1580a8480698b27f88
+          id: req_b2133a293ef54a309ba69688eb7e2042
           created: 1763594122166
-          modified: 1763753970318
+          modified: 1763839140780
           isPrivate: false
           sortKey: -1763753966701
         method: POST
@@ -60,9 +56,9 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"emailUsuario": "natan@email.com",
-            	"nomeUsuario": "natan",
-            	"senhaUsuario": "natan",
+            	"emailUsuario": "pedrogamer@email.com",
+            	"nomeUsuario": "pedrogamer",
+            	"senhaUsuario": "pedrinho123",
             	"dia": 11,
             	"mes": 2,
             	"ano": 2005,
@@ -71,14 +67,10 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
-            id: pair_efc04d31623a4949b6a82b5d2a303324
           - name: User-Agent
             value: insomnia/11.1.0
-            id: pair_da5f74fb5e5b4fa995033e7b5ac12f5a
-          - id: pair_59cce2a344694cb99c9871296cb1d5a3
-            name: Accept-Language
+          - name: Accept-Language
             value: pt-BR
-            disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -90,34 +82,32 @@ collection:
       - url: http://localhost:8080/users
         name: List Users
         meta:
-          id: req_9da35c8904174609b188e8d0e7e35463
+          id: req_29c448f16ec044bdb6cd1edb1289f122
           created: 1763594308404
-          modified: 1763753969526
+          modified: 1763838040778
           isPrivate: false
           sortKey: -1763753966651
         method: GET
         parameters:
-          - id: pair_398dcd0d9136476195c4ade282ed86bc
-            name: page
-            value: "1"
+          - name: page
+            value: "2"
             disabled: false
-          - id: pair_eb8dd288ebf14dc5944518e528df0064
-            name: size
+            id: pair_398dcd0d9136476195c4ade282ed86bc
+          - name: size
             value: "10"
             disabled: false
+            id: pair_eb8dd288ebf14dc5944518e528df0064
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
-            id: pair_3108be9202a84282aa2775cc1a48b864
-          - id: pair_880aa8bac6de41b19ae1ea2d2fe785c4
-            name: Authorization
+            id: pair_ea00b34426f749c4996fde6f8e891f19
+          - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoibmF0YW5AZW1haWwuY29tIiwiZXhwIjoxNzYzNzU3MzQ1fQ.B_1QU0PJPh2S3x_vbGHUk78LrS6rIJJ2Qpj70JvGs-4
-            disabled: false
-          - id: pair_795b6ee5fb32402f88db143f4f8fd873
-            name: Accept-Language
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoicGF1bG9AZW1haWwuY29tIiwiZXhwIjoxNzYzODQ1MjA3fQ.wCtG5XzFO-spG5YdVHdfv6-2Le-okYrVoqyEOOEWbcQ
+            id: pair_23512bede8774d80adadaa8adb006390
+          - name: Accept-Language
             value: pt-BR
-            disabled: false
+            id: pair_de09232a0fc74256b647befa19bd0f89
         authentication:
           type: none
         settings:
@@ -128,12 +118,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/users/3f29cdf1-4658-4fa4-81ef-d51ff6cba93b
+      - url: http://localhost:8080/users/f57ec165-44b1-4202-a3fd-1976c20274f2
         name: Update User
         meta:
-          id: req_ecae899f48a743cbb9942733e4913cd2
+          id: req_29588a9170aa4ed9823430b6f9905320
           created: 1763693074729
-          modified: 1763753967822
+          modified: 1763838087097
           isPrivate: false
           sortKey: -1763753966851
         method: PUT
@@ -141,8 +131,8 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"nomeUsuario": "roberta",
-            	"senhaUsuario": "robertinha",
+            	"nomeUsuario": "paulinho",
+            	"senhaUsuario": "paulinhojunior",
             	"dia": 10,
             	"mes": 11,
             	"ano": 2025
@@ -150,15 +140,14 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
-            id: pair_b0a194e84ab9425ab4b4f5ff90bd63f6
+            id: pair_0fb9ba07e94045c1a4b95713be8ad778
           - name: User-Agent
             value: insomnia/11.1.0
-            id: pair_aab2453ad849436fae16a88fa1e72ae0
-          - id: pair_94de66875bd9474c8b12276aa9117e3d
-            name: Authorization
+            id: pair_36e62db1d74b43d482228a0614615118
+          - name: Authorization
             value: Bearer
-              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoibmF0YW5AZW1haWwuY29tIiwiZXhwIjoxNzYzNzU3MzQ1fQ.B_1QU0PJPh2S3x_vbGHUk78LrS6rIJJ2Qpj70JvGs-4
-            disabled: false
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoicGF1bG9AZW1haWwuY29tIiwiZXhwIjoxNzYzODQ1MjA3fQ.wCtG5XzFO-spG5YdVHdfv6-2Le-okYrVoqyEOOEWbcQ
+            id: pair_58ce83d17bb54f5ab6f0581994bb5527
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -167,24 +156,23 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/users/3f29cdf1-4658-4fa4-81ef-d51ff6cba93b
+      - url: http://localhost:8080/users/f57ec165-44b1-4202-a3fd-1976c20274f2
         name: Get User By Id
         meta:
-          id: req_55e7bccdae25441f9b9191eb4a84efc3
+          id: req_c0a2510aebc5499ab970ca9fc629b5d5
           created: 1763694400694
-          modified: 1763753966819
+          modified: 1763838061765
           isPrivate: false
           sortKey: -1763753966751
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
-            id: pair_2131f7b4897d4b009950763c3577b66b
-          - id: pair_4f20280a5902440792384c420bcd19db
-            name: Authorization
-            value: Bearer {% response 'body', 'req_1682f63bea14485fb9bdbe1b7451c68f',
-              'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'always', 60 %}
-            disabled: false
+            id: pair_a507b31db6754ef4adad9e6f3ab63985
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgR1MyIiwic3ViIjoicGF1bG9AZW1haWwuY29tIiwiZXhwIjoxNzYzODQ1MjA3fQ.wCtG5XzFO-spG5YdVHdfv6-2Le-okYrVoqyEOOEWbcQ
+            id: pair_0c426ec697144fbcae2f96ed2c3e957b
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -195,17 +183,17 @@ collection:
           rebuildPath: true
   - name: IOT
     meta:
-      id: fld_75e681ec23dc424ab408d6db3681c59c
+      id: fld_9baf0557957345aba9f686a4e80e4a31
       created: 1763753977120
       modified: 1763754069101
       sortKey: -1763753977120
     children:
-      - url: http://localhost:8080/career
-        name: New Request
+      - url: http://localhost:8080/users/a6932e43-779e-4485-871a-6f9136a3713b/career
+        name: Gerar profissão usuário
         meta:
-          id: req_71103237c386409f86196c9c1da65592
+          id: req_6b66f8c629514659916083bff93708d0
           created: 1763754067123
-          modified: 1763755490696
+          modified: 1763839215039
           isPrivate: false
           sortKey: -1763754067123
         method: POST
@@ -269,16 +257,36 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://localhost:8080/users/ba04bc46-9143-4983-ae91-b756dc8bb9e6/career
+        name: Buscar profissão pelo ID usuario
+        meta:
+          id: req_73f70dc061e444e083eefd84f7e871ce
+          created: 1763837981238
+          modified: 1763839206807
+          isPrivate: false
+          sortKey: -1763837981238
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_b76087441975d505c620666f5b6cab63eec8047b
+    id: jar_8430623cce1d4af08cafc446bb19787b
     created: 1763512461956
     modified: 1763512461956
 environments:
   name: Base Environment
   meta:
-    id: env_b76087441975d505c620666f5b6cab63eec8047b
+    id: env_84d219cc9fa54fb9971fca4370ffb9cf
     created: 1763512461954
     modified: 1763656329666
     isPrivate: false

@@ -28,6 +28,9 @@ public class AuthController {
     private UserRepository userRepository;
     private TokenService tokenService;
 
+    /**
+     * Pega o token de acordo com o usuário que foi criado.
+     */
     @PostMapping
     public ResponseEntity login(@RequestBody @Valid LoginRequest loginRequest) {
 

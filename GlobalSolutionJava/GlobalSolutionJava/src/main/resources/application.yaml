@@ -1,4 +1,6 @@
 spring:
+  config:
+    import: optional:classpath:application-secrets.yaml
   rabbitmq:
     host: localhost
     port: 5672
@@ -40,9 +42,9 @@ azure:
 api:
   security:
     token:
-      secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30
+      secret: ${JWT_SECRET}
 
 gemini:
   api:
-    key: AIzaSyD6eOtETLksLSZle6eSKA296bsKgGQiBDs
-  model: gemini-2.5-flash
+    key: ${GEMINI_API_KEY}
+  model: ${GEMINI_MODEL:gemini-2.5-flash}

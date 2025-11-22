@@ -26,6 +26,9 @@ public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Cria um novo usuário.
+     */
     @Transactional
     @PostMapping("/users")
     @CacheEvict(value = "users", allEntries = true)
@@ -40,6 +43,9 @@ public class UserController {
         return ResponseEntity.ok(ListUsersResponse.fromModel(user));
     }
 
+    /**
+     * Lista os usuários e possui páginação.
+     */
     @GetMapping("/users")
     @Cacheable(value = "users", key = "#pageable.pageNumber + '-' + #pageable.pageSize + '-' + #pageable.sort")
     public ResponseEntity<Page<ListUsersResponse>> listUsers(
@@ -52,6 +58,9 @@ public class UserController {
         return ResponseEntity.ok(dtoPage);
     }
 
+    /**
+     * Busca um usuário no banco baseado no ID.
+     */
     @GetMapping("/users/{id}")
     public ResponseEntity<GetUserResponse> getById(@PathVariable String id, Locale locale) {
         User user = userService.getById(id, locale);
@@ -59,6 +68,9 @@ public class UserController {
         return ResponseEntity.ok(GetUserResponse.fromModel(user));
     }
 
+    /**
+     * Atualiza informações parciais do usuário.
+     */
     @PutMapping("/users/{id}")
     public ResponseEntity<MessageResponse> updateUser(
             @PathVariable String id,

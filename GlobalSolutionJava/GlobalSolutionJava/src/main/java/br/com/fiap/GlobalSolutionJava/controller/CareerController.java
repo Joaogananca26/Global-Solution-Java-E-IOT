@@ -25,7 +25,7 @@ public class CareerController {
     private final FormularioProfissaoUsuarioRepository formularioProfissaoUsuarioRepository;
 
     /**
-     * Gera a carreira via IA e salva a profissão recomendada em TB_FORMULARIO_PROFISSAO_USUARIO.
+     * Gera a carreira via IA e salva a profissão recomendada.
      */
     @PostMapping("/users/{idUsuario}/career")
     public ResponseEntity<CareerResponse> generateCareer(
@@ -64,8 +64,16 @@ public class CareerController {
     ) {
         userRepository.findById(idUsuario).orElseThrow(UserNotFoundException::new);
 
-        var entity = formularioProfissaoUsuarioRepository.findById(idUsuario)
-                .orElseThrow(UserNotFoundException::new);
+        var optionalFormulario  = formularioProfissaoUsuarioRepository.findById(idUsuario);
+
+        if (optionalFormulario.isEmpty()) {
+            return ResponseEntity.ok(new CareerUserResponse(
+                    idUsuario,
+                    null
+            ));
+        }
+
+        var entity = optionalFormulario.get();
 
         return ResponseEntity.ok(new CareerUserResponse(
                 idUsuario,
