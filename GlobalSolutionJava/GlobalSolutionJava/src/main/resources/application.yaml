@@ -1,6 +1,4 @@
 spring:
-  config:
-    import: optional:classpath:application-secrets.yaml
   rabbitmq:
     host: localhost
     port: 5672
@@ -18,8 +16,8 @@ spring:
 
   datasource:
     url: jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
-    username: RM558961
-    password: fiap25
+    username: RM556405
+    password: Fiap#2025
     driver-class-name: oracle.jdbc.driver.OracleDriver
     jpa:
       database-platform: org.hibernate.dialect.OracleDialect
@@ -42,9 +40,9 @@ azure:
 api:
   security:
     token:
-      secret: ${JWT_SECRET}
+      secret: ${JWT_SECRET:}
 
 gemini:
   api:
-    key: ${GEMINI_API_KEY}
+    key: ${GEMINI_API_KEY:}
   model: ${GEMINI_MODEL:gemini-2.5-flash}

@@ -1,9 +1,6 @@
 package br.com.fiap.GlobalSolutionJava.service;
 
-import br.com.fiap.GlobalSolutionJava.exceptions.GeminiApiKeyNotFound;
-import br.com.fiap.GlobalSolutionJava.exceptions.GeminiModelError;
-import br.com.fiap.GlobalSolutionJava.exceptions.InvalidJson;
-import br.com.fiap.GlobalSolutionJava.exceptions.ResponseIANotFound;
+import br.com.fiap.GlobalSolutionJava.exceptions.*;
 import br.com.fiap.GlobalSolutionJava.promptAI.CareerPrompt;
 import br.com.fiap.GlobalSolutionJava.dto.request.CareerRequest;
 import br.com.fiap.GlobalSolutionJava.dto.response.CareerResponse;
@@ -130,7 +127,7 @@ public class CareerService {
 
             return text.toString();
         } catch (RestClientException e) {
-            throw new GeminiModelError();
+            throw new ApiKeyLakedOrExpired();
         }
     }
 

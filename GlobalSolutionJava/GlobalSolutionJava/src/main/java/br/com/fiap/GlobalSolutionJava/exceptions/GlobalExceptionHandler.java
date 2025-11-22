@@ -219,6 +219,31 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(status).body(body);
     }
 
+    @ExceptionHandler({ApiKeyLakedOrExpired.class})
+    public ResponseEntity<ApiError> handleResponseIANotFound(
+            ApiKeyLakedOrExpired ex,
+            HttpServletRequest request
+    ) {
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+
+        Locale locale = LocaleContextHolder.getLocale();
+
+        String localizedMessage = messageSource.getMessage(
+                ex.getMessage(),
+                null,
+                locale
+        );
+
+        ApiError body = new ApiError(
+                Instant.now(),
+                status.value(),
+                localizedMessage,
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.status(status).body(body);
+    }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ApiError> handleRuntimeException(
             RuntimeException ex,
