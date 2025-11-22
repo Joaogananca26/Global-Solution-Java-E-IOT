@@ -45,4 +45,4 @@ api:
 gemini:
   api:
     key: AIzaSyD6eOtETLksLSZle6eSKA296bsKgGQiBDs
-  model: gemini-2.0-flash
+  model: gemini-2.5-flash

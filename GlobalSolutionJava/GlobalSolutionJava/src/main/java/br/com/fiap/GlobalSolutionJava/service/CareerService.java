@@ -61,7 +61,7 @@ public class CareerService {
         String envModel = System.getenv("GEMINI_MODEL");
         this.model = (modelProperty != null && !modelProperty.isBlank())
                 ? modelProperty
-                : (envModel != null && !envModel.isBlank() ? envModel : "gemini-2.0-flash");
+                : (envModel != null && !envModel.isBlank() ? envModel : "gemini-2.5-flash");
     }
 
     public CareerResponse generateCareer(CareerRequest request) {

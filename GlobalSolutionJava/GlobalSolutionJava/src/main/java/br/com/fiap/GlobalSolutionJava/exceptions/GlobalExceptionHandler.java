@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
             MissingTokenException ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.FORBIDDEN;
 
         Locale locale = LocaleContextHolder.getLocale();
 
@@ -74,7 +74,7 @@ public class GlobalExceptionHandler {
             TokenErrorGenerator ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.FORBIDDEN;
 
         Locale locale = LocaleContextHolder.getLocale();
 
@@ -99,7 +99,7 @@ public class GlobalExceptionHandler {
             GeminiApiKeyNotFound ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.FORBIDDEN;
 
         Locale locale = LocaleContextHolder.getLocale();
 
@@ -124,7 +124,7 @@ public class GlobalExceptionHandler {
             GeminiModelError ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.BAD_GATEWAY;
 
         Locale locale = LocaleContextHolder.getLocale();
 
@@ -149,7 +149,7 @@ public class GlobalExceptionHandler {
             InvalidJson ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.BAD_REQUEST;
 
         Locale locale = LocaleContextHolder.getLocale();
 
@@ -174,7 +174,32 @@ public class GlobalExceptionHandler {
             ResponseIANotFound ex,
             HttpServletRequest request
     ) {
-        HttpStatus status = HttpStatus.UNAUTHORIZED;
+        HttpStatus status = HttpStatus.BAD_GATEWAY;
+
+        Locale locale = LocaleContextHolder.getLocale();
+
+        String localizedMessage = messageSource.getMessage(
+                ex.getMessage(),
+                null,
+                locale
+        );
+
+        ApiError body = new ApiError(
+                Instant.now(),
+                status.value(),
+                localizedMessage,
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.status(status).body(body);
+    }
+
+    @ExceptionHandler({AnswerAllQuestions.class})
+    public ResponseEntity<ApiError> handleResponseIANotFound(
+            AnswerAllQuestions ex,
+            HttpServletRequest request
+    ) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
 
         Locale locale = LocaleContextHolder.getLocale();
 
