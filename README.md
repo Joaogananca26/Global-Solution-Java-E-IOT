@@ -2,7 +2,7 @@
 Projeto designado a global solution da disciplina JAVA do segundo semestre do segundo ano da FIAP
 
 --- 
-🧠 CareerAI – Sistema de Autenticação e Geração de Carreira
+🧠 Skillshift – Sistema de Autenticação e Geração de Carreira
 
 Este projeto é uma API desenvolvida em Java + Spring Boot que permite autenticar usuários e gerar automaticamente uma profissão recomendada com base nas 10 respostas fornecidas pelo próprio usuário.
 A aplicação também entrega uma trilha personalizada de aprendizagem, incluindo:
